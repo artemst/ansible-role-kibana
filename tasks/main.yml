@@ -1,0 +1,15 @@
+---
+- name: Install Kibana
+  include: install-kibana-redhat.yml
+  when: ansible_os_family == "RedHat"
+
+- name: Configure Kibana
+  template: src=kibana.yml.j2 dest=/etc/kibana/kibana.yml 
+            owner=root group=root mode=0644
+  notify: restart kibana
+
+- name: Start Kibana
+  service: name=kibana state=started enabled=yes
+
+- name: Make sure Kibana is running before proceeding
+  wait_for: port={{ kibana_server_port }} delay=3 timeout=300

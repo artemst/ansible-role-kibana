@@ -1,0 +1,13 @@
+---
+# Kibana version (ex. 5, for installing 5.x version)
+kibana_version: 5
+
+# Kibana server's name. This is used for display purposes.
+kibana_server_name: Kibana server
+# Kibana server's hostname
+kibana_server_host: 0.0.0.0
+# Kibana server's port
+kibana_server_port: 5601
+
+# URL to Elasticsearch server
+kibana_es_url: http://localhost:9200
